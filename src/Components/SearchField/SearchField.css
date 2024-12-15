@@ -1,0 +1,17 @@
+.search__field {
+	width: 400px;
+	height: 45px;
+	padding: 0 0 0 55px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid #f3f3f7;
+	border-radius: 15px;
+	background-image: url('../../../public//loupe_icon.svg');
+	background-position: 20px center;
+	background-repeat: no-repeat;
+	background-size: 20px;
+}
+.search__field:placeholder {
+	color: #cdcdd7;
+}
