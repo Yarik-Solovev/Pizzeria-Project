@@ -1,0 +1,31 @@
+.categories {
+	width: 962px;
+	height: 50px;
+	display: flex;
+	gap: 30px;
+	margin: 30px 0 0 263px;
+}
+
+.categories__button {
+	width: 150px;
+	height: 50px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ebebeb;
+	border: none;
+	border-radius: 50px;
+	font-size: 20px;
+	font-weight: 500;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.categories__button:hover {
+	background-color: rgba(207, 207, 207, 1);
+}
+
+.active {
+	background-color: rgba(102, 102, 102, 1) !important;
+	color: #ffffff;
+}
