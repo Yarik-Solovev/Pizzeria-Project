@@ -1,6 +1,6 @@
 import { TAppDispatch } from '@/Store/store'
 import { useDispatch } from 'react-redux'
-import { actions } from '../Store/Slices/User.Slice'
+import { actions } from '../Store/Slices/Modal.Slice'
 import { useMemo } from 'react'
 import { bindActionCreators } from '@reduxjs/toolkit'
 

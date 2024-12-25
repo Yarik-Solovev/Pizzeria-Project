@@ -1,0 +1,79 @@
+.main__pizza {
+	width: 300px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+}
+
+.pizza__img {
+	width: 300px;
+	height: 300px;
+
+	& img {
+		width: 300px;
+		height: 300px;
+	}
+}
+.pizza__about {
+	width: 300px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.pizza__info {
+	width: 300px;
+	height: 120px;
+
+	& h1 {
+		margin: 0;
+		font-size: 24px;
+		font-weight: 600px;
+		color: #000000;
+	}
+
+	& p {
+		font-size: 14px;
+		font-weight: 400;
+		opacity: 80%;
+	}
+}
+
+.pizza__purchase {
+	width: 300px;
+	height: 45px;
+	display: flex;
+	justify-content: space-between;
+
+	& button {
+		width: 140px;
+		height: 45px;
+		border-radius: 30px;
+		background-color: rgb(255, 240, 230);
+		border: none;
+		color: rgba(255, 105, 0, 1);
+		font-size: 16px;
+		font-weight: 600;
+		transition-property: background-color, color;
+		transition-duration: 0.2s;
+		transition-timing-function: ease-out;
+	}
+
+	& button:hover {
+		background-color: rgb(255, 210, 179);
+		color: rgb(209, 87, 0);
+	}
+}
+
+.pizza__price {
+	width: 100px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+
+	& h1 {
+		font-size: 20px;
+		font-weight: 600;
+	}
+}

@@ -1,0 +1,158 @@
+img {
+	width: 300px;
+	height: 300px;
+}
+
+dialog {
+	padding: 0;
+	border: none;
+	border-radius: 30px;
+	transform: scale(1);
+	opacity: 1;
+	transition: all 0.3s ease-out;
+	transition-behavior: allow-discrete;
+	display: block;
+
+	@starting-style {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+dialog:-internal-dialog-in-top-layer::backdrop {
+	position: fixed;
+	inset: 0px;
+	background: rgb(0 0 0 / 70%) !important;
+}
+
+.modal__content {
+	width: 925px;
+	height: 610px;
+	display: flex;
+}
+
+.modal__image {
+	width: 453px;
+	height: 610px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& img {
+		width: 400px;
+		height: 400px;
+	}
+}
+
+.modal__main {
+	width: 472px;
+	height: 610px;
+}
+
+.modal__title {
+	margin-top: 35px;
+	width: 472px;
+	height: 60px;
+	display: flex;
+	gap: 40px;
+
+	& h1 {
+		width: 370px;
+		height: 75px;
+		font-size: 2rem;
+	}
+
+	& img {
+		width: 25px;
+		height: 25px;
+		opacity: 60%;
+		transition: opacity 0.4s ease-out;
+	}
+	& img:hover {
+		opacity: 100%;
+	}
+}
+
+.modal__info {
+	width: 410px;
+	height: 18px;
+
+	& p {
+		font-size: 1rem;
+		opacity: 80%;
+	}
+}
+
+.modal__description {
+	width: 410px;
+	height: 140px;
+	margin-top: 21px;
+
+	& p {
+		font-size: 18px;
+		font-weight: 500;
+	}
+}
+
+.modal__sizes {
+	width: 390px;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	& button {
+		width: 125px;
+		height: 40px;
+		border-radius: 30px;
+		font-size: 14px;
+		border: none;
+		background-color: #ebebeb;
+		transition: background-color 0.4s ease-out;
+		border: 1px solid gray;
+	}
+	& button:hover {
+		background-color: rgba(207, 207, 207, 1);
+	}
+}
+
+.modal__dough {
+	width: 390px;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+
+	& button {
+		width: 190px;
+		height: 40px;
+		border-radius: 30px;
+		font-size: 14px;
+		border: 1px solid gray;
+		background-color: #ebebeb;
+		transition: background-color 0.4s ease-out;
+	}
+	& button:hover {
+		background-color: rgba(207, 207, 207, 1);
+	}
+}
+
+.modal__addToCartButton {
+	width: 384px;
+	height: 70px;
+
+	& button {
+		width: 384px;
+		height: 70px;
+		background-color: #ff6900;
+		color: #ffffff;
+		font-size: 18px;
+		font-weight: 600;
+		border: none;
+		border-radius: 50px;
+		transition: background-color 0.4s ease-out;
+	}
+	& button:hover:hover {
+		background-color: rgb(232, 97, 0);
+		color: rgb(255, 255, 255);
+	}
+}
