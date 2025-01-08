@@ -21,7 +21,7 @@ const PizzaCard = memo(function ({ pizza, onSelected }: TPizzaCardProps) {
 				</div>
 				<div className='pizza__purchase'>
 					<div className='pizza__price'>
-						<h1>от {pizza.price[1]}</h1>
+						<h1>от {pizza.price[0]}</h1>
 					</div>
 					<button
 						onClick={() => onSelected(pizza)}

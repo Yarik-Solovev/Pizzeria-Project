@@ -1,12 +1,18 @@
 import { TAppDispatch } from '@/Store/store'
 import { useDispatch } from 'react-redux'
-import { actions } from '../Store/Slices/Modal.Slice'
+import { modalActions } from '../Store/Slices/Modal.Slice'
+import { searchFieldActions } from '../Store/Slices/SearchField.Slice'
+import { categoryActions } from '../Store/Slices/Category.Slice'
+import { cartActions } from '../Store/Slices/Cart.Slice'
 import { useMemo } from 'react'
 import { bindActionCreators } from '@reduxjs/toolkit'
 
 const useAppDispatch = useDispatch.withTypes<TAppDispatch>()
 const rootActions = {
-	...actions,
+	...modalActions,
+	...searchFieldActions,
+	...categoryActions,
+	...cartActions,
 }
 export function useAction() {
 	const dispatch = useAppDispatch()

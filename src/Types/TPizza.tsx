@@ -1,8 +1,11 @@
 export type TPizza = {
-	id: '1'
+	id: number
 	title: string
 	image: string
 	subtitle: string
+	category: string
+	popular: boolean
+	new: boolean
 	dough: string[]
 	sizes: number[]
 	price: number[]

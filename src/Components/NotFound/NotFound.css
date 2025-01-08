@@ -1,0 +1,11 @@
+.notFoundBlock {
+	width: 1380px;
+	height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& h1 {
+		font-size: 2.25rem;
+		font-weight: 600;
+	}
+}

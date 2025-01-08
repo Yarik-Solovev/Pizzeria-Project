@@ -1,8 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import ModalReducer from './Slices/Modal.Slice'
+import modalReducer from './Slices/Modal.Slice'
+import searchFieldReducer from './Slices/SearchField.Slice'
+import categoryReducer from './Slices/Category.Slice'
+import cartReducer from './Slices/Cart.Slice'
 
 const rootReducer = combineReducers({
-	modal: ModalReducer,
+	modal: modalReducer,
+	SearchField: searchFieldReducer,
+	Category: categoryReducer,
+	Cart: cartReducer,
 })
 
 export const store = configureStore({

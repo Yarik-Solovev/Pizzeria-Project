@@ -5,8 +5,9 @@ import axios from 'axios'
 import PizzaCard from '../PizzaCard/PizzaCard'
 import { useAppSelector } from '../../Hooks/UseAppSelector'
 import Modal from '../Modal/Modal'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAction } from './../../Hooks/UseAction'
+import NotFound from '../NotFound/NotFound'
 
 async function fetchPizza(): Promise<TPizza[]> {
 	const { data } = await axios.get(
@@ -16,6 +17,9 @@ async function fetchPizza(): Promise<TPizza[]> {
 }
 
 export default function Main() {
+	const category = useAppSelector(state => state.Category.category)
+	const items = useAppSelector(state => state.Cart.items)
+	const pizza = useAppSelector(state => state.SearchField.pizza)
 	const [selectedPizza, setSelectedPizza] = useState<TPizza | null>(null)
 	const { data, isLoading } = useQuery({
 		queryKey: ['pizza'],
@@ -32,6 +36,20 @@ export default function Main() {
 		)
 	}
 
+	console.log(items)
+
+	const filteredPizzas = data?.filter((pizzaInfo: TPizza) => {
+		const matchesCategory =
+			category === 'Все' ||
+			(category === 'Хит' && pizzaInfo.popular === true) ||
+			(category === 'Новинка' && pizzaInfo.new === true) ||
+			pizzaInfo.category.trim() === category
+		const matchesSearch = pizzaInfo.title
+			.toLowerCase()
+			.includes(pizza.toLowerCase())
+		return matchesCategory && matchesSearch
+	})
+
 	const openModal = (pizza: TPizza) => {
 		setSelectedPizza(pizza)
 		setModalOpen()
@@ -44,12 +62,13 @@ export default function Main() {
 
 	return (
 		<div className='main'>
-			{data &&
-				data.map((pizza: TPizza) => {
-					return (
-						<PizzaCard key={pizza.id} pizza={pizza} onSelected={openModal} />
-					)
-				})}
+			{filteredPizzas && filteredPizzas.length > 0 ? (
+				filteredPizzas.map((pizza: TPizza) => (
+					<PizzaCard key={pizza.id} pizza={pizza} onSelected={openModal} />
+				))
+			) : (
+				<NotFound />
+			)}
 			{open && selectedPizza && (
 				<Modal pizza={selectedPizza} onClose={closeModal} />
 			)}

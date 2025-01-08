@@ -1,13 +1,29 @@
-import { useRef, useEffect, memo } from 'react'
+import { useRef, useEffect, memo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useAppSelector } from '../../Hooks/UseAppSelector'
 import { TModalProps } from '../../Types/TModalProps'
 import cross_icon from '../../../public/cross_icon.svg'
 import './Modal.css'
+import { useAction } from '../../Hooks/UseAction'
 
 const Modal = ({ pizza, onClose }: TModalProps) => {
+	const { addItem } = useAction()
+	const [sizes, setSizes] = useState(pizza.sizes[1])
+	const [dough, setDough] = useState(pizza.dough[0])
+	const [weight, setWeight] = useState(pizza.weight[1])
+	const [price, setPrice] = useState(pizza.price[1])
 	const dialogRef = useRef<HTMLDialogElement>(null)
 	const { open } = useAppSelector(state => state.modal)
+	const item = {
+		id: pizza.id,
+		title: pizza.title,
+		image: pizza.image,
+		subtitle: pizza.subtitle,
+		price: price,
+		sizes: sizes,
+		dough: dough,
+		weight: weight,
+	}
 
 	useEffect(() => {
 		const dialog = dialogRef.current
@@ -58,22 +74,55 @@ const Modal = ({ pizza, onClose }: TModalProps) => {
 						<img src={cross_icon} loading='lazy' onClick={() => onClose()} />
 					</div>
 					<div className='modal__info'>
-						<p>{`${pizza.sizes[1]} см, ${pizza.dough[0]} тесто, ${pizza.weight[1]} г`}</p>
+						<p>{`${sizes} см, ${dough} тесто, ${weight} г`}</p>
 					</div>
 					<div className='modal__description'>
 						<p>{pizza.subtitle}</p>
 					</div>
-					<div className='modal__sizes'>
-						<button>{`${pizza.sizes[0]} см`}</button>
-						<button className='active'>{`${pizza.sizes[1]} см`}</button>
-						<button>{`${pizza.sizes[2]} см`}</button>
+					<div className='modal__sizes-switcher'>
+						<button
+							className={sizes === 25 ? 'active' : ''}
+							onClick={() => {
+								setSizes(pizza.sizes[0])
+								setWeight(pizza.weight[0])
+								setPrice(pizza.price[0])
+							}}
+						>{`${pizza.sizes[0]} см`}</button>
+						<button
+							className={sizes === 30 ? 'active' : ''}
+							onClick={() => {
+								setSizes(pizza.sizes[1])
+								setWeight(pizza.weight[1])
+								setPrice(pizza.price[1])
+							}}
+						>{`${pizza.sizes[1]} см`}</button>
+						<button
+							className={sizes === 35 ? 'active' : ''}
+							onClick={() => {
+								setSizes(pizza.sizes[2])
+								setWeight(pizza.weight[2])
+								setPrice(pizza.price[2])
+							}}
+						>{`${pizza.sizes[2]} см`}</button>
 					</div>
 					<div className='modal__dough'>
-						<button>{pizza.dough[0]}</button>
-						<button>{pizza.dough[1]}</button>
+						<button
+							className={dough === 'традиционное' ? 'active' : ''}
+							onClick={() => setDough(pizza.dough[0])}
+						>
+							{pizza.dough[0]}
+						</button>
+						<button
+							className={dough === 'тонкое' ? 'active' : ''}
+							onClick={() => setDough(pizza.dough[1])}
+						>
+							{pizza.dough[1]}
+						</button>
 					</div>
 					<div className='modal__addToCartButton'>
-						<button>{`В корзину за ${pizza.price[1]}₽`}</button>
+						<button
+							onClick={() => addItem(item)}
+						>{`В корзину за ${price}₽`}</button>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,39 @@
+.back__button {
+	width: 710px;
+	height: 40px;
+
+	& a {
+		width: 710px;
+		height: 40px;
+		display: flex;
+		text-decoration: none;
+		align-items: center;
+		gap: 10px;
+		& img {
+			width: 25px;
+			height: 25px;
+			transform: rotate(180deg);
+		}
+		& p {
+			color: black;
+			font-size: 1.125rem;
+			font-weight: 500;
+		}
+	}
+}
+
+.checkoutHeader {
+	width: 710px;
+	height: 120px;
+	margin-top: 20px;
+}
+
+.checkout__title {
+	width: 710px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	& h1 {
+		font-size: 2rem;
+	}
+}

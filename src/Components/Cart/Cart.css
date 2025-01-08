@@ -27,10 +27,10 @@
 }
 
 .cart__value {
-	width: 60px;
+	width: 85px;
 	height: 25px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	border-right: 1px solid #ffffff;
 
@@ -40,20 +40,20 @@
 	}
 
 	& p {
-		width: 40px;
-		height: 22px;
 		font-size: 1.3rem;
 		font-weight: 600;
 		color: #ffffff;
+		margin-left: 10px;
 	}
 }
 
 .cart__cost {
-	width: 85px;
+	width: 75px;
 	height: 27px;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: center;
+	margin-left: 10px;
 
 	& img {
 		width: 18px;
@@ -61,11 +61,9 @@
 	}
 
 	& p {
-		width: 50px;
-		height: 22px;
 		font-size: 1.3rem;
 		font-weight: 600;
 		color: #ffffff;
-		margin-left: 10px;
+		margin-right: 10px;
 	}
 }

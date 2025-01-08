@@ -16,3 +16,8 @@
 .search__field:placeholder {
 	color: #cdcdd7;
 }
+
+.search__field:focus-visible {
+	border: 2px solid black;
+	outline: none;
+}
