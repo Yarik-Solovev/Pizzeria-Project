@@ -7,7 +7,9 @@ import './Modal.css'
 import { useAction } from '../../Hooks/UseAction'
 
 const Modal = ({ pizza, onClose }: TModalProps) => {
-	const { addItem } = useAction()
+	const totalQuantity = useAppSelector(state => state.Cart.totalQuantity)
+	const [amount, setAmount] = useState(0)
+	const { addItem, removeItem } = useAction()
 	const [sizes, setSizes] = useState(pizza.sizes[1])
 	const [dough, setDough] = useState(pizza.dough[0])
 	const [weight, setWeight] = useState(pizza.weight[1])
@@ -71,7 +73,12 @@ const Modal = ({ pizza, onClose }: TModalProps) => {
 				<div className='modal__main'>
 					<div className='modal__title'>
 						<h1>{pizza.title}</h1>
-						<img src={cross_icon} loading='lazy' onClick={() => onClose()} />
+						<img
+							src={cross_icon}
+							loading='lazy'
+							onClick={() => onClose()}
+							draggable='false'
+						/>
 					</div>
 					<div className='modal__info'>
 						<p>{`${sizes} см, ${dough} тесто, ${weight} г`}</p>
@@ -119,11 +126,41 @@ const Modal = ({ pizza, onClose }: TModalProps) => {
 							{pizza.dough[1]}
 						</button>
 					</div>
-					<div className='modal__addToCartButton'>
-						<button
-							onClick={() => addItem(item)}
-						>{`В корзину за ${price}₽`}</button>
-					</div>
+
+					{amount > 0 ? (
+						<div className='addToCartButton'>
+							<button
+								onClick={() => {
+									if (amount > 0) {
+										removeItem(item.id)
+										setAmount(prev => prev - 1)
+									}
+								}}
+							>
+								-
+							</button>
+							<p>{amount}</p>
+							<button
+								onClick={() => {
+									if (totalQuantity < 50) addItem(item)
+									setAmount(prev => (amount < 50 ? prev + 1 : prev))
+								}}
+							>
+								+
+							</button>
+						</div>
+					) : (
+						<div className='modal__addToCartButton'>
+							<button
+								onClick={() => {
+									if (totalQuantity < 50) {
+										addItem(item)
+										setAmount(prev => prev + 1)
+									}
+								}}
+							>{`В корзину за ${price}₽`}</button>
+						</div>
+					)}
 				</div>
 			</div>
 		</dialog>,

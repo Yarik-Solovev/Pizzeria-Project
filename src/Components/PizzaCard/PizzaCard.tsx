@@ -12,6 +12,7 @@ const PizzaCard = memo(function ({ pizza, onSelected }: TPizzaCardProps) {
 					loading='lazy'
 					width='200'
 					height='200'
+					draggable='false'
 				/>
 			</div>
 			<div className='pizza__about'>

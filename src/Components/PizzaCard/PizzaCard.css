@@ -3,6 +3,7 @@
 	height: 500px;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 30px;
 }
 
 .pizza__img {
@@ -29,7 +30,7 @@
 	& h1 {
 		margin: 0;
 		font-size: 1.5rem;
-		font-weight: 600px;
+		font-weight: 600;
 		color: #000000;
 	}
 

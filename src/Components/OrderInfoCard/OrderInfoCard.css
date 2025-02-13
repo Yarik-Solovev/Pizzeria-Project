@@ -1,0 +1,33 @@
+.orderCard {
+	width: 640px;
+	height: 130px;
+	padding: 20px 15px 0 15px;
+	display: flex;
+	flex-wrap: wrap;
+
+	& img {
+		width: 125px;
+		height: 125px;
+	}
+}
+
+.orderCardTitle {
+	height: 130px;
+	width: 300px;
+	margin: 5px 0 0 10px;
+	display: flex;
+	justify-content: center;
+
+	flex-direction: column;
+
+	& h3 {
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 500;
+		margin-bottom: 8px;
+	}
+	& p {
+		font-size: 1rem;
+		opacity: 80%;
+	}
+}

@@ -1,0 +1,78 @@
+.orderPayment {
+	width: 710px;
+	height: 400px;
+	margin-top: 80px;
+	& h1 {
+		font-size: 2rem;
+		font-weight: 600;
+		height: 48px;
+		margin-bottom: 50px;
+	}
+}
+
+.paymentCard {
+	position: relative;
+	width: 532px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	border-radius: 20px;
+	overflow: hidden;
+	z-index: 0;
+	padding: 10px 20px;
+	& p {
+		margin-right: 340px;
+		font-size: 1.35rem;
+		font-weight: 400;
+	}
+	& input {
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+	}
+	& img {
+		width: 40px;
+		height: 38px;
+	}
+}
+
+.paymentCard::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	padding: 2px;
+	background: radial-gradient(
+				circle at 100% 100%,
+				#fff 0,
+				#fff 18px,
+				transparent 0
+			)
+			0 0 / 20px 20px no-repeat,
+		radial-gradient(circle at 0 100%, #fff 0, #fff 18px, transparent 0) 100% 0 /
+			20px 20px no-repeat,
+		radial-gradient(circle at 100% 0, #fff 0, #fff 18px, transparent 0) 0 100% /
+			20px 20px no-repeat,
+		radial-gradient(circle at 0 0, #fff 0, #fff 18px, transparent 0) 100% 100% /
+			20px 20px no-repeat,
+		linear-gradient(#fff, #fff) 50% 50% / calc(100% - 4px) calc(100% - 40px)
+			no-repeat,
+		linear-gradient(#fff, #fff) 50% 50% / calc(100% - 40px) calc(100% - 4px)
+			no-repeat,
+		linear-gradient(
+			310deg,
+			#984995,
+			#5b57a2 14%,
+			#017f36 30%,
+			#63b22f 47%,
+			#d90751 65%,
+			#fab718 84%,
+			#1487c9
+		);
+	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: destination-out;
+	z-index: -1;
+}

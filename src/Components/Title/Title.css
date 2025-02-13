@@ -1,11 +1,16 @@
 .title {
-	width: 1380px;
-	height: 50px;
-	margin: 40px 250px 50px 250px;
-
 	& h1 {
-		font-weight: 800;
-		font-size: 2.25rem;
-		margin: 0;
+		font-weight: 700;
+		font-size: 2.125rem;
+		margin: 40px 0 50px 250px;
+	}
+}
+
+@media (max-width: 1750px) {
+	.title {
+		& h1 {
+			margin: 40px 0 50px 0;
+			text-align: center;
+		}
 	}
 }

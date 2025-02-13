@@ -7,7 +7,7 @@ export default function CheckoutHeader() {
 		<div className='checkoutHeader'>
 			<div className='back__button'>
 				<Link to='/'>
-					<img src={arrow_icon} />
+					<img src={arrow_icon} draggable='false' />
 					<p>Назад</p>
 				</Link>
 			</div>

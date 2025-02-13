@@ -21,3 +21,9 @@
 	border: 2px solid black;
 	outline: none;
 }
+
+@media (max-width: 1024px) {
+	.search__field {
+		display: none;
+	}
+}

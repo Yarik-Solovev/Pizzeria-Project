@@ -1,0 +1,10 @@
+.order__info__main {
+	width: 710px;
+	height: 1080px;
+	margin-right: 218px;
+	& h1 {
+		margin: 20px 0 20px 0;
+		font-weight: 2rem;
+		font-weight: 600;
+	}
+}

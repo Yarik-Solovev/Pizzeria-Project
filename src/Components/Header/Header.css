@@ -11,10 +11,12 @@
 	width: 400px;
 	height: 150px;
 	display: flex;
+	align-items: center;
 
 	& img {
-		width: 150px;
-		height: 150px;
+		width: 100px;
+		height: 100px;
+		margin-right: 10px;
 	}
 }
 
@@ -40,5 +42,14 @@
 
 	& span {
 		color: #ff6900;
+	}
+}
+
+@media (max-width: 480px) {
+	.header__logo {
+		margin-left: 30px;
+		& img {
+			display: none;
+		}
 	}
 }

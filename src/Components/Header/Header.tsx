@@ -9,7 +9,7 @@ export default function Header() {
 		<header className='header'>
 			<div className='header__logo'>
 				<Link to='/'>
-					<img src={Pizza_logo} />
+					<img src={Pizza_logo} draggable='false' />
 				</Link>
 				<div className='header__titles'>
 					<Link to='/'>Моя Пицца</Link>

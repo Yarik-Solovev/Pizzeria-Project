@@ -5,7 +5,7 @@ import axios from 'axios'
 import PizzaCard from '../PizzaCard/PizzaCard'
 import { useAppSelector } from '../../Hooks/UseAppSelector'
 import Modal from '../Modal/Modal'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAction } from './../../Hooks/UseAction'
 import NotFound from '../NotFound/NotFound'
 
@@ -18,7 +18,6 @@ async function fetchPizza(): Promise<TPizza[]> {
 
 export default function Main() {
 	const category = useAppSelector(state => state.Category.category)
-	const items = useAppSelector(state => state.Cart.items)
 	const pizza = useAppSelector(state => state.SearchField.pizza)
 	const [selectedPizza, setSelectedPizza] = useState<TPizza | null>(null)
 	const { data, isLoading } = useQuery({
@@ -35,8 +34,6 @@ export default function Main() {
 			</div>
 		)
 	}
-
-	console.log(items)
 
 	const filteredPizzas = data?.filter((pizzaInfo: TPizza) => {
 		const matchesCategory =

@@ -3,5 +3,24 @@
 	display: flex;
 	gap: 60px;
 	flex-wrap: wrap;
-	margin: 0 270px 0 270px;
+	margin: 0 auto;
+}
+
+@media (max-width: 1750px) {
+	.main {
+		width: calc(300px * 3 + 60px * 2);
+	}
+}
+
+@media (max-width: 1140px) {
+	.main {
+		width: calc(300px * 2 + 60px * 1);
+	}
+}
+
+@media (max-width: 660px) {
+	.main {
+		width: 300px;
+		gap: 0;
+	}
 }
